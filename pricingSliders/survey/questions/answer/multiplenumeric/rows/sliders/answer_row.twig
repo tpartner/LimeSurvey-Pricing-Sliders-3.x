@@ -106,10 +106,4 @@
 {% endset %}
 {{ registerScript( 'SliderQuestion'~myfname, script, 'POS_POSTSCRIPT') }}
 
-{% set script %}
-	//if(!$('#question{{qid}}').hasClass('with-pricing-sliders')) {
-    //	initPricingSliders('{{qid}}', '{{sSeparator}}', '{{question_template_attribute.pricing_random_order}}');
-    //}    
-{% endset %}
-{{ registerScript( 'myscript'~myfname, script, 'POS_POSTSCRIPT') }}
 <!-- end of answer_row -->

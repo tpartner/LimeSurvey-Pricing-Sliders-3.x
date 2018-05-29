@@ -1,5 +1,6 @@
 # Pricing Sliders for LimeSurvey 3.x
 **A custom question theme for "Pricing Sliders" in LimeSurvey 3.x**
+
 When a slider is manipulated, all of the "higher" sliders are dynamically pushed to higher levels and "lower" sliders are pushed to lower levels. This ensures that the data will always be valid. 
 
 ![Image Pricing Sliders](/pricingSliders/survey/questions/answer/multiplenumeric/assets/images/pricing_sliders_3.x_1.png)

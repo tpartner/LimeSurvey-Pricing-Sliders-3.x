@@ -11,7 +11,7 @@ When a slider is manipulated, all of the "higher" sliders are dynamically pushed
 
 2) Create a multiple-numeric-input question, click Save.
 
-3) Set the question setting "Question theme" to "pricingSliders", click Save.  
+3) Set the question setting "Question theme" to "pricingSliders".  
 ![Image Select pricingSliders](/pricingSliders/survey/questions/answer/multiplenumeric/assets/images/pricing_sliders_3.x_2.png)
 
 4) Adjust the question slider settings as necessary (*Use slider layout* will be defaulted to "On"). 

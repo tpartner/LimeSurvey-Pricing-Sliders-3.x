@@ -29,4 +29,4 @@ When a slider is manipulated, all of the "higher" sliders are dynamically pushed
     
         
             
->*Custom themes are given without any warranty, implied or otherwise.*
+*Custom themes are given without any warranty, implied or otherwise.*

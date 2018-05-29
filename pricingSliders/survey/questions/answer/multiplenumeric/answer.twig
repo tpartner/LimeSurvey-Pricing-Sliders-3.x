@@ -1,0 +1,29 @@
+
+{# /**
+ * Multiple Numerical question Html for slider.
+ *
+ * @var $sRows      : the rows, generated with the views rows/answer_row.php
+ *
+ * @var $prefixclass
+ * @var $equals_num_value
+ * @var $id
+ * @var $prefix
+ * @var $sumRemainingEqn
+ * @var $displaytotal
+ * @var $sumEqn
+ * @var $prefix
+ */ #}
+
+<!-- Multiple Numerical with slider -->
+<!-- answer -->
+<ul class='{{coreClass}} list-unstyled ' role="group" aria-labelledby="ls-question-text-{{basename}}">
+    {% block rows %}
+        {{ sRows }}
+    {% endblock %}
+    <!-- No dynamic sums available in this custom theme  -->
+</ul>
+
+{% set script %}
+	initPricingSliders('{{id}}', '{{question_template_attribute.pricing_random_order}}');   
+{% endset %}
+{{ registerScript( 'myscript'~myfname, script, 'POS_POSTSCRIPT') }}

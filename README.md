@@ -26,5 +26,7 @@ When a slider is manipulated, all of the "higher" sliders are dynamically pushed
 **Notes:**
 
 1) Demo survey in */pricingSliders/survey/questions/answer/multiplenumeric/assets/demo/*.
-
-***Custom themes are given without any warranty, implied or otherwise.***
+    
+        
+            
+>*Custom themes are given without any warranty, implied or otherwise.*

@@ -5,6 +5,7 @@
     Licensed MIT, GPL
     Version - 1.0
     Create date - 29/05/2018
+    Last Edit - 27/05/2019
 *****/
 
 function shuffleArray(array) {
@@ -43,6 +44,9 @@ function initPricingSliders(qID, randomOrder) {
 	});
 	
 	function psHandleSliders(el) {
+		
+		$('body').off('slide.ps slideStop.ps', '#question'+qID+' .ps-slider-input');
+		
 		var psSeparator = $(el).attr('data-ps-separator');
 		var psStep =  $(el).attr('data-ps-step');
 		var sliderVal = Number($(el).val().replace(psSeparator, '.'));
@@ -60,7 +64,7 @@ function initPricingSliders(qID, randomOrder) {
 		$(lowerSliders).each(function(i) {
 			var thisVal = Number($(this).val().replace(psSeparator, '.'));
 			var thisIndexNum = $(this).attr('data-ps-slider-index');
-			var newSliderVal = sliderVal-((movedIndexNum*psStep)-(thisIndexNum*psStep));			
+			var newSliderVal = sliderVal-((movedIndexNum*psStep)-(thisIndexNum*psStep));
 			if(thisVal > newSliderVal) {
 				psMoveSlider($(this), newSliderVal);
 			}
@@ -68,29 +72,33 @@ function initPricingSliders(qID, randomOrder) {
 		$(higherSliders).each(function(i) {
 			var thisVal = Number($(this).val().replace(psSeparator, '.'));
 			var thisIndexNum = $(this).attr('data-ps-slider-index');
-			var newSliderVal = sliderVal+((thisIndexNum*psStep)-(movedIndexNum*psStep));			
+			var newSliderVal = sliderVal+((thisIndexNum*psStep)-(movedIndexNum*psStep));
 			if(thisVal < newSliderVal) {
 				psMoveSlider($(this), newSliderVal);
 			}
 		});
+				
 		function psMoveSlider(el, newSliderVal) {
-				// Move the slider
-				var thisName = $(el).attr('name').replace('slid', '');
-				window.activeSliders['s'+thisName].getSlider().setValue(newSliderVal);
-				
-				//console.log(window.activeSliders['s'+thisName].getSlider().getValue());
-				
-				// Handle the inputs
-				var displayValue = $(el).val().toString().replace('.', psSeparator); 
-				$(el).val(displayValue);
-				$(el).closest('li.answer-item').find('input.em_sq_validation').val(displayValue);
-				
-				// Fire Expression Manager
-				ExprMgr_process_relevance_and_tailoring('keyup', thisName, 'change');
+			// Move the slider
+			var thisName = $(el).attr('name').replace('slid', '');
+	
+			window.activeSliders['s'+thisName].getSlider().setValue(newSliderVal);
+			
+			// Handle the inputs
+			var displayValue = $(el).val().toString().replace('.', psSeparator); 
+			$(el).val(displayValue);
+			$(el).closest('li.answer-item').find('input.em_sq_validation').val(displayValue);
+			
+			// Fire Expression Manager
+			ExprMgr_process_relevance_and_tailoring('keyup', thisName, 'change');
 		}
+	
+		$('body').on('slide.ps slideStop.ps', '#question'+qID+' .ps-slider-input', function(event) {
+			psHandleSliders($(this));
+		});
 	}
 	
-	$('body').on('slide slideStop', '#question'+qID+' .ps-slider-input', function(event) {
-		psHandleSliders($(this))
+	$('body').on('slide.ps slideStop.ps', '#question'+qID+' .ps-slider-input', function(event) {
+		psHandleSliders($(this));
 	});
 }
